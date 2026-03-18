@@ -1,0 +1,153 @@
+/* Project Sunshine — yellow, eclectic, fun */
+
+:root {
+  --yellow-bright: #f7e74a;
+  --yellow-deep: #e6c200;
+  --yellow-soft: #fff9c4;
+  --orange-pop: #ff9800;
+  --coral: #ff6b6b;
+  --teal: #26a69a;
+  --ink: #1a1a1a;
+  --white: #fff;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Mono", monospace;
+  background: linear-gradient(160deg, var(--yellow-soft) 0%, var(--yellow-bright) 40%, var(--yellow-deep) 100%);
+  color: var(--ink);
+}
+
+.header {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.header h1 {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 2px 2px 0 var(--yellow-deep);
+}
+
+.tagline {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+.section-title {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.calendar-section {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 3px solid var(--yellow-deep);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: 700;
+  padding: 0.5rem 0;
+  color: var(--teal);
+}
+
+.calendar-cell {
+  min-height: 56px;
+  padding: 0.35rem;
+  background: var(--yellow-soft);
+  border-radius: 8px;
+  border: 1px solid var(--yellow-deep);
+}
+
+.calendar-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+.calendar-cell.today {
+  background: var(--yellow-bright);
+  border-color: var(--orange-pop);
+  box-shadow: 0 0 0 2px var(--orange-pop);
+}
+
+.calendar-cell .day-num {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.calendar-cell .show-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  margin-right: 2px;
+  margin-top: 2px;
+}
+
+.shows-section {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 3px solid var(--teal);
+}
+
+.shows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.show-card {
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, var(--yellow-soft) 0%, var(--white) 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--orange-pop);
+}
+
+.show-card h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+  color: var(--ink);
+}
+
+.show-card .meta {
+  font-size: 0.85rem;
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.show-card .meta span {
+  margin-right: 1rem;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Sunshine — Bay Area Art Shows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Project Sunshine</h1>
+    <p class="tagline">SF Bay Area art shows this month</p>
+  </header>
+
+  <main class="main">
+    <section class="calendar-section">
+      <h2 id="calendar-title" class="section-title">March 2025</h2>
+      <div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Calendar for current month"></div>
+    </section>
+
+    <section class="shows-section">
+      <h2 class="section-title">This month&apos;s shows</h2>
+      <div id="shows-list" class="shows-list" role="list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
