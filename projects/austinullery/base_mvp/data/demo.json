@@ -1,0 +1,41 @@
+{
+  "disclaimer": "Demo / placeholder data — not connected to real devices or utilities.",
+  "home": { "name": "Demo Home" },
+  "moduleStatus": {
+    "energy": {
+      "connected": false,
+      "lastUpdated": "2026-03-31T08:00:00Z",
+      "summary": "12.4 kWh today (demo)",
+      "detail": "Utility & smart-meter connection — coming in a future phase."
+    },
+    "security": {
+      "connected": false,
+      "lastUpdated": "2026-03-31T07:45:00Z",
+      "summary": "8 motion events (demo)",
+      "detail": "Cameras & sensors — coming in a future phase."
+    },
+    "climate": {
+      "connected": false,
+      "lastUpdated": "2026-03-31T07:30:00Z",
+      "summary": "72°F inside · 58% runtime (demo)",
+      "detail": "Thermostat & HVAC — coming in a future phase."
+    }
+  },
+  "energy": {
+    "dailyUsageByHourKwh": [0.2, 0.15, 0.12, 0.11, 0.1, 0.15, 0.35, 0.55, 0.48, 0.42, 0.5, 0.62, 0.71, 0.85, 0.92, 0.88, 0.75, 0.68, 0.82, 0.7, 0.55, 0.4, 0.32, 0.25],
+    "insight": "Afternoons are highest usage — peak around 2–4pm (demo).",
+    "totalKwhToday": 12.4,
+    "peakHour": 15
+  },
+  "feed": [
+    { "time": "8:12 AM", "text": "Energy: afternoon peak pattern matches yesterday (demo)." },
+    { "time": "7:50 AM", "text": "Security: motion clustered 2–4pm (demo)." },
+    { "time": "Yesterday", "text": "Climate: runtime rose on warmer days (demo)." }
+  ],
+  "assistantPrompts": [
+    "How much energy today?",
+    "When is peak usage?",
+    "What should Security connect to?",
+    "Summarize the dashboard"
+  ]
+}
