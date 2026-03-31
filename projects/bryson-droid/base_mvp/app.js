@@ -5,6 +5,7 @@ const profiles = [
     distance: "6 miles away",
     course: "Presidio Golf Course",
     availability: "Sat mornings",
+    vibe: "Walks 18",
     bio: "Walking 18, keeps a steady pace, always up for a casual competitive round.",
     hints: ["Similar skill level", "Shared morning availability", "Mutual course"],
     photo: "linear-gradient(135deg, #2f855a, #68d391)",
@@ -15,6 +16,7 @@ const profiles = [
     distance: "11 miles away",
     course: "TPC Harding Park",
     availability: "Sun afternoons",
+    vibe: "Relaxed 9",
     bio: "Rides most rounds, likes 9 holes after lunch, relaxed vibe and no pressure.",
     hints: ["Within travel radius", "Same 9-hole preference", "Good weekend overlap"],
     photo: "linear-gradient(135deg, #2b6cb0, #63b3ed)",
@@ -25,6 +27,7 @@ const profiles = [
     distance: "4 miles away",
     course: "Lincoln Park Golf Course",
     availability: "Weekday twilight",
+    vibe: "New golfer",
     bio: "Newer golfer looking for a recurring group, easygoing round, and good course chat.",
     hints: ["Very close by", "Flexible schedule", "Recurring group interest"],
     photo: "linear-gradient(135deg, #805ad5, #d6bcfa)",
@@ -50,10 +53,10 @@ function renderProfile() {
 
   if (!profile) {
     profileCard.innerHTML = `
-      <div class="profile-body">
-        <p class="section-label">All caught up</p>
+      <div class="done-state">
+        <span class="done-pill">Stack complete</span>
         <h3>No more golfers to review.</h3>
-        <p class="profile-bio">You made it through the starter stack. Refresh to browse again.</p>
+        <p>You made it through the starter stack. Refresh to browse again or keep your favorite picks in the saved list.</p>
       </div>
     `;
     passButton.disabled = true;
@@ -63,20 +66,36 @@ function renderProfile() {
 
   profileCard.innerHTML = `
     <div class="profile-photo" style="background-image: ${profile.photo};">
-      <h3>${profile.name}</h3>
+      <div class="profile-topline">
+        <span class="profile-badge">Top pick nearby</span>
+        <span class="profile-badge">${profile.distance}</span>
+      </div>
+      <div class="profile-headline">
+        <h3>${profile.name}</h3>
+        <div class="profile-subline">
+          <span>${profile.handicap}</span>
+          <span>${profile.vibe}</span>
+        </div>
+      </div>
     </div>
     <div class="profile-body">
-      <ul class="profile-meta">
-        <li>${profile.handicap}</li>
-        <li>${profile.distance}</li>
-        <li>${profile.course}</li>
-        <li>${profile.availability}</li>
-      </ul>
-      <p class="profile-bio">${profile.bio}</p>
-      <p class="section-label">Why this match?</p>
-      <ul class="hint-list">
-        ${profile.hints.map((hint) => `<li>${hint}</li>`).join("")}
-      </ul>
+      <section class="profile-section">
+        <p class="section-label">Round details</p>
+        <ul class="profile-meta">
+          <li>${profile.course}</li>
+          <li>${profile.availability}</li>
+        </ul>
+      </section>
+      <section class="profile-section">
+        <p class="section-label">About them</p>
+        <p class="profile-bio">${profile.bio}</p>
+      </section>
+      <section class="profile-section">
+        <p class="section-label">Why this match?</p>
+        <ul class="hint-list">
+          ${profile.hints.map((hint) => `<li>${hint}</li>`).join("")}
+        </ul>
+      </section>
     </div>
   `;
 
@@ -90,7 +109,7 @@ function renderMatches() {
   if (likedProfiles.length === 0) {
     matchesList.innerHTML = `
       <li>
-        <p class="empty-state">Liked golfers will appear here so you can quickly review possible playing partners.</p>
+        <p class="empty-state"><strong>Start swiping</strong>Liked golfers will appear here so you can quickly review the playing partners worth circling back to.</p>
       </li>
     `;
     return;
@@ -100,8 +119,11 @@ function renderMatches() {
     .map(
       (profile) => `
         <li class="match-item">
-          <strong>${profile.name}</strong>
-          <p>${profile.handicap} · ${profile.course} · ${profile.availability}</p>
+          <div class="match-avatar" style="background: ${profile.photo};">${profile.name.charAt(0)}</div>
+          <div class="match-copy">
+            <strong>${profile.name}</strong>
+            <p>${profile.handicap} · ${profile.course} · ${profile.availability}</p>
+          </div>
         </li>
       `,
     )
