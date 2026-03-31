@@ -18,6 +18,10 @@ This folder is where your project code lives.
 2. Tell Cursor to generate the base MVP here
 3. Tell Cursor to run it locally and verify it works
 
+**Run Pixel Pace:** open `index.html` in your browser, or serve this folder (e.g. `python3 -m http.server 8080`).
+
+**Tier art (`assets/tier-0.png` … `tier-3.png`):** bundled pixel-style portraits for each fitness tier. To use [Nano Banana](https://nano-banana.app/) (or similar) instead, export four matching sprites with the same filenames into `assets/`.
+
 ### After You're Done
 
 > **Ask Cursor:** "Commit all my changes with the message 'Base MVP scaffold', push to my fork, and open a PR to the original repo"
