@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalLens — Base MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>LocalLens</h1>
+        <p class="tagline">
+          Rank mock local spots — expanded preferences + taste history.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="prefs-heading">
+        <h2 id="prefs-heading">Your preferences</h2>
+        <div class="prefs-grid">
+          <fieldset class="fieldset">
+            <legend>Favorite cuisines</legend>
+            <div id="cuisine-checkboxes" class="checkbox-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Price comfort</legend>
+            <div id="price-radios" class="radio-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Vibe</legend>
+            <div id="vibe-radios" class="radio-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Dietary priorities</legend>
+            <p class="field-hint">Select what you need; leave empty for any.</p>
+            <div id="dietary-checkboxes" class="checkbox-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Noise level</legend>
+            <div id="noise-radios" class="radio-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Outdoor seating</legend>
+            <div id="outdoor-radios" class="radio-row"></div>
+          </fieldset>
+          <fieldset class="fieldset">
+            <legend>Kid-friendly</legend>
+            <div id="kid-radios" class="radio-row"></div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="panel top-picks" aria-labelledby="top-heading">
+        <h2 id="top-heading">Top 3 for you</h2>
+        <p class="hint">Updates as you adjust preferences or like places below.</p>
+        <ol id="top-three" class="top-list"></ol>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <h2 id="list-heading">All spots (ranked)</h2>
+        <ul id="restaurant-list" class="card-list"></ul>
+      </section>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
