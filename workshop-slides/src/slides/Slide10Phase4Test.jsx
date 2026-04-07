@@ -2,66 +2,49 @@ const Slide10Phase4Test = () => (
   <>
     <div className="section-header">
       <span className="section-badge section1">Section 1</span>
-      <span className="phase-badge">Phase 4: Test • 5 min</span>
+      <span className="phase-badge">Phase 4: Test</span>
     </div>
     <h2>Test</h2>
-    <div className="checklist">
-      {/* Git SYNC */}
-      <div className="check-group git">
-        <div className="check-group-label">Git: Sync</div>
-        <div className="check-item">
-          <div className="check-box"></div>
-          <div>
-            <strong>Merge all approved PRs</strong> — combine everyone's
-            sandboxes into the official project
-          </div>
-        </div>
-        <div className="check-item has-code">
-          <div className="check-header">
-            <div className="check-box"></div>
-            <div>
-              <strong>Tell Cursor to sync and pull everything</strong>
-            </div>
-          </div>
-          <div className="code-block">
-            <code>
-              <span className="comment">Ask Cursor:</span>
-              <br />
-              "Sync my fork with upstream and pull all the
-              <br />
-              latest changes"
-            </code>
-          </div>
-        </div>
+    <div style={{
+      background: 'linear-gradient(135deg, rgba(42,161,152,0.10), rgba(42,161,152,0.03))',
+      border: '2px dashed rgba(42,161,152,0.3)',
+      borderRadius: '12px',
+      padding: '1.5rem 2rem',
+      textAlign: 'center',
+      marginBottom: '1.5rem',
+    }}>
+      <div style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+        We're skipping this phase today
       </div>
-
-{/* IN CURSOR */}
-        <div className="check-group work section1">
-          <div className="check-group-label">In Cursor</div>
-        <div className="check-item">
-          <div className="check-box"></div>
-          <div>
-            <strong>Run the full application</strong>
-          </div>
-        </div>
-        <div className="check-item">
-          <div className="check-box"></div>
-          <div>
-            <strong>Test ALL features together</strong> — does everything
-            integrate?
-          </div>
-        </div>
-        <div className="check-item">
-          <div className="check-box"></div>
-          <div>
-            <strong>Fix integration issues</strong> — use Cursor to help debug
-          </div>
-        </div>
+      <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+        But here's what normally happens at this stage:
       </div>
     </div>
-    <div className="emphasis-box green">
-      <strong>Section 1 Complete</strong> — You just experienced Plan → Design →
-      Develop → Test.
+    <div className="tiles" style={{ gridTemplateColumns: '1fr 1fr' }}>
+      <div className="tile cyan">
+        <div className="tile-title">
+          <span className="highlight-green">Write automated tests</span>
+        </div>
+        <ul className="tile-bullets">
+          <li>Does the code do what the PRD says it should?</li>
+          <li>Unit tests check individual pieces, integration tests check the full flow</li>
+          <li>Cursor can generate tests from your PRD and code</li>
+        </ul>
+      </div>
+      <div className="tile cyan">
+        <div className="tile-title">
+          <span className="highlight-green">Catch bugs before users do</span>
+        </div>
+        <ul className="tile-bullets">
+          <li>Tests run automatically every time someone pushes code</li>
+          <li>If a new feature breaks an old one, tests flag it immediately</li>
+          <li>This is how teams ship with confidence at scale</li>
+        </ul>
+      </div>
+    </div>
+    <div className="emphasis-box green" style={{ marginTop: '1rem' }}>
+      <strong>The big idea:</strong> Testing is how you prove your software works the way
+      you <em>think</em> it works — before it reaches real users.
     </div>
   </>
 )

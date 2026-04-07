@@ -2,9 +2,9 @@ const Slide07Phase1Plan = () => (
   <>
     <div className="section-header">
       <span className="section-badge section1">Section 1</span>
-      <span className="phase-badge">Phase 1: Plan • 10 min</span>
+      <span className="phase-badge">Phase 1: Plan / Design • 10 min</span>
     </div>
-    <h2>Plan</h2>
+    <h2>Plan / Design</h2>
     <div className="scrollable">
       <div className="checklist">
         {/* Git START */}
