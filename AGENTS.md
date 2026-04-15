@@ -1,39 +1,58 @@
 # AGENTS.md
 
-## Cursor Cloud specific instructions
+## Cursor Cloud instructions for this repository
 
 ### Repository overview
+This is a multi-project workshop repo ("Cursor SDLC Workshop") containing independent React/Vite sub-projects.
 
-This is a multi-project workshop repo ("Cursor SDLC Workshop") containing independent React/Vite sub-projects. There is **no root-level `package.json`** — each sub-project manages its own dependencies. No databases, Docker, or external services are required.
+- There is **no root-level `package.json`**.
+- Run npm commands **inside each sub-project directory only**.
+- No databases, Docker, or external services are required.
 
-### Key sub-projects
+> **Important:** Do not run `npm install`, `npm run dev`, or `npm run build` at `/workspace`.
 
-| Project | Path | Port | Package manager |
-|---|---|---|---|
-| Slides: SDLC Workshop | `slides-sdlc-workshop/` | 5173 (default) | npm |
-| Slides: Cursor 101 | `slides_cursor_101/` | 5174 (use `--port`) | npm |
-| LinkedOut (teams 1-5) | `linkedout/team_{1-5}/` | 3001-3005 | npm |
-| Soft Girl Era Wellness | `projects/soft-girl-era-wellness-deals/base_mvp/` | 5175 (use `--port`) | npm |
+### Projects at a glance
 
-The `archive/` directory contains old workshop outputs and can be ignored.
+| Project | Path | Default Port | Package Manager | Notes |
+|---|---|---:|---|---|
+| Slides: SDLC Workshop | `slides-sdlc-workshop/` | 5173 | npm | Has lint |
+| Slides: Cursor 101 | `slides_cursor_101/` | 5174 | npm | Start with `--port 5174`; has lint |
+| LinkedOut team apps | `linkedout/team_{1-5}/` | 3001-3005 | npm | No lint script; ports hardcoded |
+| Soft Girl Era Wellness | `projects/soft-girl-era-wellness-deals/base_mvp/` | 5175 | npm | Start with `--port 5175` |
 
-### Running services
+The `archive/` directory contains old outputs and should generally be ignored.
 
-All sub-projects use `npm run dev` (Vite). Specify `--host 0.0.0.0` for network access from the browser:
+### Quick start commands (run in the target project directory)
 
+| Action | Command |
+|---|---|
+| Install deps | `npm install` |
+| Start dev server | `npm run dev -- --host 0.0.0.0` |
+| Build | `npm run build` |
+| Lint (slides only) | `npm run lint` |
+
+Examples:
 ```bash
-cd slides-sdlc-workshop && npm run dev -- --host 0.0.0.0
-cd linkedout/team_1 && npm run dev -- --host 0.0.0.0
+cd slides-sdlc-workshop && npm install && npm run dev -- --host 0.0.0.0
+cd slides_cursor_101 && npm install && npm run dev -- --host 0.0.0.0 --port 5174
+cd linkedout/team_1 && npm install && npm run dev -- --host 0.0.0.0
 ```
 
-### Lint and build
+### Validation expectations (no automated tests in repo)
+When making changes, prefer this verification checklist:
 
-- The two slides projects (`slides-sdlc-workshop`, `slides_cursor_101`) have ESLint configured: `npm run lint`
-- The LinkedOut team apps do **not** have a lint script.
-- All projects build with `npm run build`.
+1. App starts successfully (`npm run dev`)
+2. Build succeeds (`npm run build`)
+3. Lint succeeds where available (`slides-sdlc-workshop`, `slides_cursor_101`)
+4. UI behavior is manually verified for the changed area
 
-### Gotchas
+### Known gotchas
+- LinkedOut apps use Vite 5 with CJS and may print a deprecation warning; this is expected.
+- LinkedOut apps do **not** include a lint script.
+- LinkedOut ports are hardcoded in each `vite.config.js`; do not change them unless explicitly requested.
+- If a port is already in use, stop the conflicting process or run only the intended app.
 
-- LinkedOut apps use Vite 5 with CJS, which prints a deprecation warning — this is harmless and expected.
-- There are no automated tests in any sub-project; verification is done by running the dev server and checking the UI.
-- Each LinkedOut team folder has a hardcoded port in `vite.config.js`; do not change these ports when running multiple teams simultaneously.
+### Scope boundaries
+- Avoid editing `archive/` unless explicitly requested.
+- Keep changes localized to the relevant sub-project.
+- Do not introduce cross-project assumptions (each app is independent).
